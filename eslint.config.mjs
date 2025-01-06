@@ -19,7 +19,8 @@ export default [
     },
     rules: {
       'prettier/prettier': 'error',
-      'react/react-in-jsx-scope': 'off', // Add this line to disable the rule
+      'react/react-in-jsx-scope': 'off', // React 17+ doesn't require React in scope
+      '@typescript-eslint/no-require-imports': 'off', // Disable this rule to allow require imports
     },
   },
 ];
