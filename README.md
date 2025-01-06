@@ -1,4 +1,3 @@
-
 # BendXR Mobile App
 
 The BendXR Mobile App is the companion application to the BendXR mixed-reality experience. Built with React Native, this app empowers users to manage their fitness and stretching routines, track progress, and control the MR session remotely.
