@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Exercise",
+    "image": "exercise",
+    "description": "A comprehensive workout routine to build strength and endurance.",
+    "id": 1
+  },
+  {
+    "title": "Stretch",
+    "image": "stretch",
+    "description": "A series of stretches to improve flexibility and reduce tension.",
+    "id": 2
+  }
+]

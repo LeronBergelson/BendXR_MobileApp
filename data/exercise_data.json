@@ -1,0 +1,124 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "type": "Stretching",
+      "name": "Hamstring Stretch",
+      "description": "Stretch your hamstrings by reaching for your toes while keeping your legs straight."
+    },
+    {
+      "id": 2,
+      "type": "Stretching",
+      "name": "Shoulder Stretch",
+      "description": "Extend one arm across your chest and use the other to gently pull it closer."
+    },
+    {
+      "id": 3,
+      "type": "Stretching",
+      "name": "Quadriceps Stretch",
+      "description": "Stand on one leg and pull the opposite foot toward your buttocks to stretch the quad."
+    },
+    {
+      "id": 4,
+      "type": "Stretching",
+      "name": "Side Stretch",
+      "description": "Reach one arm overhead and lean to the opposite side to stretch your obliques."
+    },
+    {
+      "id": 5,
+      "type": "Stretching",
+      "name": "Neck Stretch",
+      "description": "Tilt your head to one side, bringing your ear closer to your shoulder to stretch your neck."
+    },
+    {
+      "id": 6,
+      "type": "Stretching",
+      "name": "Cat-Cow Stretch",
+      "description": "Alternate between arching your back and rounding it while on your hands and knees."
+    },
+    {
+      "id": 7,
+      "type": "Stretching",
+      "name": "Seated Forward Fold",
+      "description": "Sit on the floor with legs extended and reach forward toward your toes."
+    },
+    {
+      "id": 8,
+      "type": "Stretching",
+      "name": "Butterfly Stretch",
+      "description": "Sit on the floor with your feet together and knees out, then gently press your knees downward."
+    },
+    {
+      "id": 9,
+      "type": "Stretching",
+      "name": "Calf Stretch",
+      "description": "Place one foot behind you and press the heel into the floor while leaning forward."
+    },
+    {
+      "id": 10,
+      "type": "Stretching",
+      "name": "Lower Back Stretch",
+      "description": "Lie on your back and pull your knees toward your chest to stretch your lower back."
+    },
+    {
+      "id": 11,
+      "type": "Workout",
+      "name": "Push-Ups",
+      "description": "Perform a plank position and lower your body until your chest is near the floor, then push up."
+    },
+    {
+      "id": 12,
+      "type": "Workout",
+      "name": "Lunges",
+      "description": "Step forward with one leg and lower your hips until both knees are bent at a 90-degree angle."
+    },
+    {
+      "id": 13,
+      "type": "Workout",
+      "name": "Jumping Jacks",
+      "description": "Jump with legs spread wide and arms overhead, then return to the starting position."
+    },
+    {
+      "id": 14,
+      "type": "Workout",
+      "name": "Squats",
+      "description": "Lower your body into a sitting position with your feet shoulder-width apart, then return to standing."
+    },
+    {
+      "id": 15,
+      "type": "Workout",
+      "name": "Mountain Climbers",
+      "description": "In a plank position, alternate bringing your knees toward your chest in a running motion."
+    },
+    {
+      "id": 16,
+      "type": "Workout",
+      "name": "Burpees",
+      "description": "Drop into a squat, kick your feet back into a plank, return to a squat, and jump upward."
+    },
+    {
+      "id": 17,
+      "type": "Workout",
+      "name": "Plank",
+      "description": "Hold your body in a straight line with your forearms and toes on the ground."
+    },
+    {
+      "id": 18,
+      "type": "Workout",
+      "name": "High Knees",
+      "description": "Run in place while bringing your knees up toward your chest as high as possible."
+    },
+    {
+      "id": 19,
+      "type": "Workout",
+      "name": "Side Lunges",
+      "description": "Step out to one side, bending the knee while keeping the other leg straight, then return to standing."
+    },
+    {
+      "id": 20,
+      "type": "Workout",
+      "name": "Leg Raises",
+      "description": "Lie on your back and lift your legs straight up, then lower them without touching the floor."
+    }
+  ]
+}
