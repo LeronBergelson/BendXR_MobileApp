@@ -13,7 +13,7 @@ describe('CustomCarouselItem', () => {
 
   it('renders correctly', () => {
     const { getByText } = render(
-      <CustomCarouselItem item={mockItem} onPress={mockOnPress} />
+      <CustomCarouselItem item={mockItem} onPress={mockOnPress} />,
     );
 
     expect(getByText('Exercise')).toBeTruthy();
@@ -22,10 +22,10 @@ describe('CustomCarouselItem', () => {
 
   it('calls onPress when pressed', () => {
     const { getByText } = render(
-      <CustomCarouselItem item={mockItem} onPress={mockOnPress} />
+      <CustomCarouselItem item={mockItem} onPress={mockOnPress} />,
     );
 
     fireEvent.press(getByText('Exercise'));
     expect(mockOnPress).toHaveBeenCalled();
   });
-}); 
+});

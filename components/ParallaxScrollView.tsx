@@ -1,5 +1,5 @@
-import type { PropsWithChildren, ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
+import type { PropsWithChildren } from 'react';
+import { StyleSheet, Image } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedRef,
@@ -14,13 +14,14 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 const HEADER_HEIGHT = 250;
 
 type Props = PropsWithChildren<{
-  headerImage: ReactElement;
   headerBackgroundColor: { dark: string; light: string };
 }>;
 
+const GIF_URL =
+  'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXpvcHU3NTB2ZHZjeDVxMTZqdnJ3cmYyNHh5ZjdkNG96d3l0YjgxeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UmKxt6PqvqtYIfB3hY/giphy.gif';
+
 export default function ParallaxScrollView({
   children,
-  headerImage,
   headerBackgroundColor,
 }: Props) {
   const colorScheme = useColorScheme() ?? 'light';
@@ -63,7 +64,11 @@ export default function ParallaxScrollView({
             headerAnimatedStyle,
           ]}
         >
-          {headerImage}
+          <Image
+            source={{ uri: GIF_URL }}
+            style={styles.headerImage}
+            resizeMode="cover"
+          />
         </Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
       </Animated.ScrollView>
@@ -81,8 +86,10 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 32,
-    gap: 16,
     overflow: 'hidden',
+  },
+  headerImage: {
+    width: '100%',
+    height: '100%',
   },
 });
