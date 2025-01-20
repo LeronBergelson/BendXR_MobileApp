@@ -8,6 +8,9 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import CustomCarouselItem from './CustomCarouselItem';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '@/app/navigation/types';
 
 const { height } = Dimensions.get('window');
 
@@ -22,14 +25,21 @@ interface CarouselProps {
   data: Array<CarouselItem>;
 }
 
+type NavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'ExerciseListScreen'
+>;
+
 const CustomCarousel: React.FC<CarouselProps> = ({ data }) => {
+  const navigation = useNavigation<NavigationProp>();
   const mySlide = useRef<FlatList<CarouselItem>>(null);
   const scrollY = new Animated.Value(0);
   const position = Animated.divide(scrollY, height);
 
   const handleItemPress = (item: CarouselItem) => {
-    console.log('Item pressed:', item);
-    // Add any additional logic for handling the press event here
+    navigation.navigate('ExerciseListScreen', {
+      category: item.title.toLowerCase(),
+    });
   };
 
   if (data && data.length) {

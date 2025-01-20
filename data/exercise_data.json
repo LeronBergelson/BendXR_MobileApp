@@ -2,123 +2,253 @@
   "activities": [
     {
       "id": 1,
-      "type": "Stretching",
-      "name": "Hamstring Stretch",
-      "description": "Stretch your hamstrings by reaching for your toes while keeping your legs straight."
+      "type": "Stretch",
+      "name": "Shoulder Stretch"
     },
     {
       "id": 2,
-      "type": "Stretching",
-      "name": "Shoulder Stretch",
-      "description": "Extend one arm across your chest and use the other to gently pull it closer."
-    },
-    {
-      "id": 3,
-      "type": "Stretching",
-      "name": "Quadriceps Stretch",
-      "description": "Stand on one leg and pull the opposite foot toward your buttocks to stretch the quad."
-    },
-    {
-      "id": 4,
-      "type": "Stretching",
-      "name": "Side Stretch",
-      "description": "Reach one arm overhead and lean to the opposite side to stretch your obliques."
+      "type": "Stretch",
+      "name": "Kneel Position with Head Rotation",
+      "variations": {
+        "left": {
+          "id": 3,
+          "name": "Kneel Position with Head Rotation (Left)"
+        },
+        "right": {
+          "id": 4,
+          "name": "Kneel Position with Head Rotation (Right)"
+        }
+      }
     },
     {
       "id": 5,
-      "type": "Stretching",
-      "name": "Neck Stretch",
-      "description": "Tilt your head to one side, bringing your ear closer to your shoulder to stretch your neck."
+      "type": "Stretch",
+      "name": "Seated Side Stretch"
     },
     {
       "id": 6,
-      "type": "Stretching",
-      "name": "Cat-Cow Stretch",
-      "description": "Alternate between arching your back and rounding it while on your hands and knees."
+      "type": "Stretch",
+      "name": "Cobra Stretch"
     },
     {
       "id": 7,
-      "type": "Stretching",
-      "name": "Seated Forward Fold",
-      "description": "Sit on the floor with legs extended and reach forward toward your toes."
-    },
-    {
-      "id": 8,
-      "type": "Stretching",
-      "name": "Butterfly Stretch",
-      "description": "Sit on the floor with your feet together and knees out, then gently press your knees downward."
-    },
-    {
-      "id": 9,
-      "type": "Stretching",
-      "name": "Calf Stretch",
-      "description": "Place one foot behind you and press the heel into the floor while leaning forward."
+      "type": "Stretch",
+      "name": "Lunge Twist",
+      "variations": {
+        "left": {
+          "id": 8,
+          "name": "Lunge Twist (Left)"
+        },
+        "right": {
+          "id": 9,
+          "name": "Lunge Twist (Right)"
+        }
+      }
     },
     {
       "id": 10,
-      "type": "Stretching",
-      "name": "Lower Back Stretch",
-      "description": "Lie on your back and pull your knees toward your chest to stretch your lower back."
-    },
-    {
-      "id": 11,
-      "type": "Workout",
-      "name": "Push-Ups",
-      "description": "Perform a plank position and lower your body until your chest is near the floor, then push up."
-    },
-    {
-      "id": 12,
-      "type": "Workout",
-      "name": "Lunges",
-      "description": "Step forward with one leg and lower your hips until both knees are bent at a 90-degree angle."
+      "type": "Stretch",
+      "name": "Low Lunge with Arm Raise",
+      "variations": {
+        "left": {
+          "id": 11,
+          "name": "Low Lunge with Arm Raise (Left)"
+        },
+        "right": {
+          "id": 12,
+          "name": "Low Lunge with Arm Raise (Right)"
+        }
+      }
     },
     {
       "id": 13,
-      "type": "Workout",
-      "name": "Jumping Jacks",
-      "description": "Jump with legs spread wide and arms overhead, then return to the starting position."
-    },
-    {
-      "id": 14,
-      "type": "Workout",
-      "name": "Squats",
-      "description": "Lower your body into a sitting position with your feet shoulder-width apart, then return to standing."
-    },
-    {
-      "id": 15,
-      "type": "Workout",
-      "name": "Mountain Climbers",
-      "description": "In a plank position, alternate bringing your knees toward your chest in a running motion."
+      "type": "Stretch",
+      "name": "Figure-Four Stretch",
+      "variations": {
+        "left": {
+          "id": 14,
+          "name": "Figure-Four Stretch (Left)"
+        },
+        "right": {
+          "id": 15,
+          "name": "Figure-Four Stretch (Right)"
+        }
+      }
     },
     {
       "id": 16,
-      "type": "Workout",
-      "name": "Burpees",
-      "description": "Drop into a squat, kick your feet back into a plank, return to a squat, and jump upward."
+      "type": "Stretch",
+      "name": "Hamstring Stretch"
     },
     {
       "id": 17,
-      "type": "Workout",
-      "name": "Plank",
-      "description": "Hold your body in a straight line with your forearms and toes on the ground."
+      "type": "Stretch",
+      "name": "Forward Fold"
     },
     {
       "id": 18,
-      "type": "Workout",
-      "name": "High Knees",
-      "description": "Run in place while bringing your knees up toward your chest as high as possible."
+      "type": "Stretch",
+      "name": "Seated Spinal Twist",
+      "variations": {
+        "left": {
+          "id": 19,
+          "name": "Seated Spinal Twist (Left)"
+        },
+        "right": {
+          "id": 20,
+          "name": "Seated Spinal Twist (Right)"
+        }
+      }
     },
     {
-      "id": 19,
-      "type": "Workout",
-      "name": "Side Lunges",
-      "description": "Step out to one side, bending the knee while keeping the other leg straight, then return to standing."
+      "id": 21,
+      "type": "Stretch",
+      "name": "Hip Rotation",
+      "variations": {
+        "left": {
+          "id": 22,
+          "name": "Hip Rotation (Left)"
+        },
+        "right": {
+          "id": 23,
+          "name": "Hip Rotation (Right)"
+        }
+      }
     },
     {
-      "id": 20,
+      "id": 24,
+      "type": "Stretch",
+      "name": "Jumping Jacks"
+    },
+    {
+      "id": 25,
+      "type": "Stretch",
+      "name": "Arm Rotations"
+    },
+    {
+      "id": 26,
+      "type": "Stretch",
+      "name": "Forward Fold with Arm Cross"
+    },
+    {
+      "id": 27,
+      "type": "Stretch",
+      "name": "Standing Side Stretch"
+    },
+    {
+      "id": 28,
+      "type": "Stretch",
+      "name": "Supine Hamstring Stretch"
+    },
+    {
+      "id": 29,
+      "type": "Stretch",
+      "name": "Side Lunge Stretch"
+    },
+    {
+      "id": 30,
+      "type": "Stretch",
+      "name": "Circular Arm Raise to Toe Touch",
+      "variations": {
+        "left": {
+          "id": 31,
+          "name": "Circular Arm Raise to Toe Touch (Left)"
+        },
+        "right": {
+          "id": 32,
+          "name": "Circular Arm Raise to Toe Touch (Right)"
+        }
+      }
+    },
+    {
+      "id": 33,
+      "type": "Stretch",
+      "name": "Forward Reach",
+      "variations": {
+        "left": {
+          "id": 34,
+          "name": "Forward Reach (Left)"
+        },
+        "right": {
+          "id": 35,
+          "name": "Forward Reach (Right)"
+        }
+      }
+    },
+    {
+      "id": 36,
       "type": "Workout",
-      "name": "Leg Raises",
-      "description": "Lie on your back and lift your legs straight up, then lower them without touching the floor."
+      "name": "Squats"
+    },
+    {
+      "id": 37,
+      "type": "Workout",
+      "name": "Squats with Punch"
+    },
+    {
+      "id": 38,
+      "type": "Workout",
+      "name": "Lunges"
+    },
+    {
+      "id": 39,
+      "type": "Workout",
+      "name": "Sit-Ups"
+    },
+    {
+      "id": 40,
+      "type": "Workout",
+      "name": "Sit-Ups with Hands on Head"
+    },
+    {
+      "id": 41,
+      "type": "Workout",
+      "name": "Push-Ups"
+    },
+    {
+      "id": 42,
+      "type": "Workout",
+      "name": "Close-Hand Push-Ups"
+    },
+    {
+      "id": 43,
+      "type": "Workout",
+      "name": "One-Hand Push-Ups",
+      "variations": {
+        "left": {
+          "id": 44,
+          "name": "One-Hand Push-Ups (Left)"
+        },
+        "right": {
+          "id": 45,
+          "name": "One-Hand Push-Ups (Right)"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "type": "Workout",
+      "name": "Mountain Climbers"
+    },
+    {
+      "id": 47,
+      "type": "Workout",
+      "name": "Sit-Up with Elbow-to-Knee Rotation"
+    },
+    {
+      "id": 48,
+      "type": "Workout",
+      "name": "Supine Hip Bridge"
+    },
+    {
+      "id": 49,
+      "type": "Workout",
+      "name": "Seated Leg Push with Body Rotation"
+    },
+    {
+      "id": 50,
+      "type": "Workout",
+      "name": "Bicycle Crunches"
     }
   ]
 }

@@ -5,11 +5,11 @@ import { ThemedView } from '@/components/ThemedView';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import Carousel from '@/components/Carousel/CustomCarousel';
 import carouselData from '@/data/carouselItems.json';
-import exerciseImage from '@/assets/images/workout.jpg';
+import workoutImage from '@/assets/images/workout.jpg';
 import stretchImage from '@/assets/images/stretching.jpg';
 
 const imageMap = {
-  exercise: exerciseImage,
+  Workout: workoutImage,
   stretch: stretchImage,
 };
 
