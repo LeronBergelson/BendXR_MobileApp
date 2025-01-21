@@ -27,7 +27,7 @@ export default function HomeScreen() {
         headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       ></ParallaxScrollView>
       <LinearGradient
-        colors={['#303030', 'black']}
+        colors={['#a10362', 'black']}
         style={styles.carouselContainer}
       >
         <Carousel data={carouselItems} />

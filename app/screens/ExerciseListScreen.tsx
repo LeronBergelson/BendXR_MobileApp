@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
-import { RootStackParamList } from '@/app/navigation/types'; // Adjust the import path as necessary
-import { RouteProp } from '@react-navigation/native';
-import exerciseData from '@/data/exercise_data.json'; // Ensure the path is correct
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import { RootStackParamList } from '@/app/navigation/types';
+import { RouteProp, useNavigation } from '@react-navigation/native';
+import { HeaderBackButton } from '@react-navigation/elements';
+import exerciseData from '@/data/exercise_data.json';
 
-// Define the type for route parameters
 type ExerciseListScreenRouteProp = RouteProp<
   RootStackParamList,
   'ExerciseListScreen'
 >;
 
 interface ExerciseListScreenProps {
-  route: ExerciseListScreenRouteProp; // Add route to the props
+  route: ExerciseListScreenRouteProp;
 }
 
 interface ExerciseItem {
@@ -31,43 +37,91 @@ interface ExerciseItem {
 }
 
 const ExerciseListScreen: React.FC<ExerciseListScreenProps> = ({ route }) => {
+  const navigation = useNavigation();
   const category = route.params.category; // Access category from route params
 
   const [exercises, setExercises] = useState<ExerciseItem[]>([]);
 
   useEffect(() => {
+    // Filter exercises based on the category passed from the route params
     const filteredExercises = exerciseData.activities.filter(
       (activity) => activity.type.toLowerCase() === category,
     );
+    // Update the state with the filtered exercises
     setExercises(filteredExercises);
-  }, [category]);
+  }, [category]); // Dependency array ensures this runs when 'category' changes
 
   return (
-    <View>
-      <Text>
+    <View style={styles.container}>
+      {/* Back button to navigate back */}
+      <HeaderBackButton
+        onPress={() => navigation.goBack()}
+        tintColor="#FFF"
+        style={styles.backButton}
+      />
+      <Text style={styles.headerText}>
+        {/* Display the category name with the first letter capitalized */}
         {category.charAt(0).toUpperCase() + category.slice(1)} Exercises
       </Text>
       <FlatList
-        data={exercises}
-        keyExtractor={(item) => item.id.toString()}
+        data={exercises} // Data source for the list
+        keyExtractor={(item) => item.id.toString()} // Unique key for each item
         renderItem={({ item }) => (
-          <View style={{ padding: 10 }}>
-            <Text style={{ fontSize: 18 }}>{item.name}</Text>
+          <TouchableOpacity
+            style={styles.itemButton}
+            onPress={() => console.log(item.name)}
+          >
+            <Text style={styles.itemText}>{item.name}</Text>
+            {/* Display variations if available */}
             {item.variations && (
               <View>
                 {item.variations.left && (
-                  <Text>Left: {item.variations.left.name}</Text>
+                  <Text style={styles.variationText}>
+                    Left: {item.variations.left.name}
+                  </Text>
                 )}
                 {item.variations.right && (
-                  <Text>Right: {item.variations.right.name}</Text>
+                  <Text style={styles.variationText}>
+                    Right: {item.variations.right.name}
+                  </Text>
                 )}
               </View>
             )}
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  headerText: {
+    color: '#FFF',
+    fontSize: 22,
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  backButton: {
+    marginTop: 60,
+  },
+  itemButton: {
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#333',
+    borderRadius: 5,
+  },
+  itemText: {
+    color: '#FFF',
+    fontSize: 18,
+  },
+  variationText: {
+    color: '#AAA',
+    fontSize: 16,
+  },
+});
 
 export default ExerciseListScreen;

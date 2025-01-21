@@ -10,9 +10,12 @@ const HomeStackNavigator = () => {
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
-      <HomeStack.Screen name="ExerciseListScreen" component={ExerciseListScreen} />
+      <HomeStack.Screen
+        name="ExerciseListScreen"
+        component={ExerciseListScreen}
+      />
     </HomeStack.Navigator>
   );
 };
 
-export default HomeStackNavigator; 
+export default HomeStackNavigator;
