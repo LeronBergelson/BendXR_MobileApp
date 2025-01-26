@@ -64,13 +64,15 @@ const ExerciseListItem: React.FC<ExerciseListItemProps> = ({
         {expandedId === item.id && (
           <View style={styles.expandedSection}>
             <View style={styles.infoContainer}>
-              <Image source={getImagePath(item.image)} style={styles.image} />
               <Text style={styles.description}>{item.description}</Text>
+              <Image source={getImagePath(item.image)} style={styles.image} />
             </View>
-            <ExcerciseStartButton
-              onToggle={handleExerciseToggle}
-              isActive={isExerciseActive}
-            />
+            <View style={styles.buttonContainer}>
+              <ExcerciseStartButton
+                onToggle={handleExerciseToggle}
+                isActive={isExerciseActive}
+              />
+            </View>
           </View>
         )}
       </View>
@@ -83,6 +85,11 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 8,
     overflow: 'hidden',
+    elevation: 3, // Add shadow for Android
+    shadowColor: '#000', // Shadow for iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1.5,
   },
   touchableArea: {
     flexDirection: 'column',
@@ -98,29 +105,48 @@ const styles = StyleSheet.create({
   itemText: {
     color: '#FFF',
     fontSize: 18,
+    fontWeight: 'bold', // Make text bold
   },
   iconStyle: {
     marginLeft: 10,
   },
   expandedSection: {
     flexDirection: 'column',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     width: '100%',
   },
   infoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: 10,
+    backgroundColor: 'lightblack', // Light grey background
+    borderWidth: 1,
+    borderColor: '#FFF', // White border
+    padding:0,
+    borderRadius: 10,
   },
   image: {
     width: 150,
     height: 150,
-    marginRight: 10,
-    marginTop: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#FFF',
   },
   description: {
     fontSize: 16,
     flex: 1,
     color: '#FFF',
+    fontStyle: 'italic',
+    paddingRight: 10, // Add padding to separate text from the image
+    paddingLeft: 10,
+  },
+  buttonContainer: {
+    marginTop: 20, // Space between the info container and the button
+    marginBottom: 10,
+    width: '100%', // Ensure the container takes full width
+    alignItems: 'center' // Center the button horizontally
   },
 });
 
