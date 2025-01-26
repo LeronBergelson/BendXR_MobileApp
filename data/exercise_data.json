@@ -5,7 +5,7 @@
       "type": "Stretch",
       "name": "Shoulder Stretch",
       "description": "A stretch to improve shoulder flexibility and reduce tension.",
-      "image": "ShoulderStretch.png",
+      "image": "ShoulderStretch",
       "imagePath": "./assets/images/BendXR_ExercisePics/ShoulderStretch.png"
     },
     {
