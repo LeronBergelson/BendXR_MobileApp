@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import ExerciseListItem from '../ExerciseListItem';
-import { Image } from 'react-native';
 
 // Mock the image require to avoid issues during testing
 jest.mock('react-native/Libraries/Image/Image', () => ({

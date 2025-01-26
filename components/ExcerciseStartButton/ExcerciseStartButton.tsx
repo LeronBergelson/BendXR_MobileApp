@@ -16,14 +16,15 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
   return (
     <TouchableOpacity
       onPress={onToggle}
-      style={[styles.button, isActive ? styles.activeButton : styles.inactiveButton]}
+      style={[
+        styles.button,
+        isActive ? styles.activeButton : styles.inactiveButton,
+      ]}
     >
-      <Icon
-        name={isActive ? 'pause' : 'play'}
-        size={24}
-        color="#FFF"
-      />
-      <Text style={styles.buttonText}>{isActive ? 'Pause Exercise' : 'Start Exercise'}</Text>
+      <Icon name={isActive ? 'pause' : 'play'} size={24} color="#FFF" />
+      <Text style={styles.buttonText}>
+        {isActive ? 'Pause Exercise' : 'Start Exercise'}
+      </Text>
       {isActive && (
         <View style={styles.timerContainer}>
           <Text style={styles.timerText}>{secondsLeft}</Text>
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   activeButton: {
     backgroundColor: 'darkred',
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFF',
     marginLeft: 10,
-    fontSize: 16
+    fontSize: 16,
   },
   timerContainer: {
     backgroundColor: 'red',

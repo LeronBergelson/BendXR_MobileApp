@@ -1,18 +1,9 @@
 import React, { useRef } from 'react';
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  FlatList,
-  Animated,
-  ImageSourcePropType,
-} from 'react-native';
+import { View, FlatList, Animated, ImageSourcePropType } from 'react-native';
 import CustomCarouselItem from './CustomCarouselItem';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '@/app/navigation/types';
-
-const { height } = Dimensions.get('window');
 
 interface CarouselItem {
   image: ImageSourcePropType;
@@ -34,7 +25,6 @@ const CustomCarousel: React.FC<CarouselProps> = ({ data }) => {
   const navigation = useNavigation<NavigationProp>();
   const mySlide = useRef<FlatList<CarouselItem>>(null);
   const scrollY = new Animated.Value(0);
-  const position = Animated.divide(scrollY, height);
 
   const handleItemPress = (item: CarouselItem) => {
     navigation.navigate('ExerciseListScreen', {
@@ -72,9 +62,5 @@ const CustomCarousel: React.FC<CarouselProps> = ({ data }) => {
   console.log('Please provide Images');
   return null;
 };
-
-const styles = StyleSheet.create({
-  // Removed the dotView style as it's no longer needed
-});
 
 export default CustomCarousel;

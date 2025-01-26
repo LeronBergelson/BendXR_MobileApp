@@ -9,7 +9,6 @@ import Animated, {
 
 import { ThemedView } from '@/components/ThemedView';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 const HEADER_HEIGHT = 250;
 
@@ -20,11 +19,7 @@ type Props = PropsWithChildren<{
 // Assuming BendXRLogo.gif is stored in your assets folder
 const BEND_XR_LOGO_GIF = require('@/assets/images/BendXRLogo.gif');
 
-export default function ParallaxScrollView({
-  children,
-  headerBackgroundColor,
-}: Props) {
-  const colorScheme = useColorScheme() ?? 'light';
+export default function ParallaxScrollView({ children }: Props) {
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
   const bottom = useBottomTabOverflow();

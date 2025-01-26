@@ -1,5 +1,13 @@
 // imageMappings.ts
-const imageMap: { [key: string]: any } = {
+// imageMappings.ts
+
+// Define a type for the image map
+type ImageMap = {
+  [key: string]: ReturnType<typeof require>;
+};
+
+// Define the image map with explicit types
+const imageMap: ImageMap = {
   ShoulderStretch: require('@/assets/images/BendXR_ExercisePics/ShoulderStretch.png'),
   KneelHeadRotL: require('@/assets/images/BendXR_ExercisePics/KneelHeadRotL.png'),
   KneelHeadRotR: require('@/assets/images/BendXR_ExercisePics/KneelHeadRotR.png'),

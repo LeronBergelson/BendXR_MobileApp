@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblack', // Light grey background
     borderWidth: 1,
     borderColor: '#FFF', // White border
-    padding:0,
+    padding: 0,
     borderRadius: 10,
   },
   image: {
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     marginTop: 20, // Space between the info container and the button
     marginBottom: 10,
     width: '100%', // Ensure the container takes full width
-    alignItems: 'center' // Center the button horizontally
+    alignItems: 'center', // Center the button horizontally
   },
 });
 

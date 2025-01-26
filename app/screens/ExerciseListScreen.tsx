@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  Button,
-} from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { RootStackParamList } from '@/app/navigation/types';
 import { RouteProp, useNavigation } from '@react-navigation/native';
 import { HeaderBackButton } from '@react-navigation/elements';
