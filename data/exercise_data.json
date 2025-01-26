@@ -1,0 +1,337 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "type": "Stretch",
+      "name": "Shoulder Stretch",
+      "description": "A stretch to improve shoulder flexibility and reduce tension.",
+      "image": "ShoulderStretch",
+      "imagePath": "./assets/images/BendXR_ExercisePics/ShoulderStretch.png"
+    },
+    {
+      "id": 2,
+      "type": "Stretch",
+      "name": "Kneel Position with Head Rotation",
+      "description": "Targets neck and shoulder mobility in a kneeling position.",
+      "image": "KneelHeadRotL",
+      "variations": {
+        "left": {
+          "id": 3,
+          "name": "Kneel Position with Head Rotation (Left)",
+          "image": "KneelHeadRotL"
+        },
+        "right": {
+          "id": 4,
+          "name": "Kneel Position with Head Rotation (Right)",
+          "image": "KneelHeadRotR"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "Stretch",
+      "name": "Seated Side Stretch",
+      "description": "A seated stretch that improves flexibility in the sides and back.",
+      "image": "SeatedSideStretch"
+    },
+    {
+      "id": 6,
+      "type": "Stretch",
+      "name": "Cobra Stretch",
+      "description": "An excellent stretch for the lower back and abdominal muscles.",
+      "image": "CobraStretch"
+    },
+    {
+      "id": 7,
+      "type": "Stretch",
+      "name": "Lunge Twist",
+      "description": "A dynamic stretch for the hips, spine, and core muscles.",
+      "image": "LungeTwistL",
+      "variations": {
+        "left": {
+          "id": 8,
+          "name": "Lunge Twist (Left)",
+          "image": "LungeTwistL"
+        },
+        "right": {
+          "id": 9,
+          "name": "Lunge Twist (Right)",
+          "image": "LungeTwistR"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "Stretch",
+      "name": "Low Lunge with Arm Raise",
+      "description": "A stretch to improve hip flexibility and shoulder mobility.",
+      "image": "LowLungeArmRaiseL",
+      "variations": {
+        "left": {
+          "id": 11,
+          "name": "Low Lunge with Arm Raise (Left)",
+          "image": "LowLungeArmRaiseL"
+        },
+        "right": {
+          "id": 12,
+          "name": "Low Lunge with Arm Raise (Right)",
+          "image": "LowLungeArmRaiseR"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": "Stretch",
+      "name": "Figure-Four Stretch",
+      "description": "A stretch targeting the hips and glutes.",
+      "image": "FigureFourL",
+      "variations": {
+        "left": {
+          "id": 14,
+          "name": "Figure-Four Stretch (Left)",
+          "image": "FigureFourL"
+        },
+        "right": {
+          "id": 15,
+          "name": "Figure-Four Stretch (Right)",
+          "image": "FigureFourR"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": "Stretch",
+      "name": "Hamstring Stretch",
+      "description": "A stretch to lengthen and relax the hamstring muscles.",
+      "image": "HamstringStretch"
+    },
+    {
+      "id": 17,
+      "type": "Stretch",
+      "name": "Forward Fold",
+      "description": "A calming stretch that targets the lower back and hamstrings.",
+      "image": "ForwardFold"
+    },
+    {
+      "id": 18,
+      "type": "Stretch",
+      "name": "Seated Spinal Twist",
+      "description": "A twisting stretch for the spine and obliques.",
+      "image": "SeatedSpinalTwistL",
+      "variations": {
+        "left": {
+          "id": 19,
+          "name": "Seated Spinal Twist (Left)",
+          "image": "SeatedSpinalTwistL"
+        },
+        "right": {
+          "id": 20,
+          "name": "Seated Spinal Twist (Right)",
+          "image": "SeatedSpinalTwistR"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": "Stretch",
+      "name": "Hip Rotation",
+      "description": "A movement to improve hip mobility and reduce tension.",
+      "image": "HipRotationL",
+      "variations": {
+        "left": {
+          "id": 22,
+          "name": "Hip Rotation (Left)",
+          "image": "HipRotationL"
+        },
+        "right": {
+          "id": 23,
+          "name": "Hip Rotation (Right)",
+          "image": "HipRotationR"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "type": "Stretch",
+      "name": "Jumping Jacks",
+      "description": "A full-body warm-up exercise.",
+      "image": "JumpingJacks"
+    },
+    {
+      "id": 25,
+      "type": "Stretch",
+      "name": "Arm Rotations",
+      "description": "A shoulder warm-up exercise to improve mobility.",
+      "image": "ArmRotations"
+    },
+    {
+      "id": 26,
+      "type": "Stretch",
+      "name": "Forward Fold with Arm Cross",
+      "description": "A stretch for the lower back, hamstrings, and shoulders.",
+      "image": "ForwardFoldArmCross"
+    },
+    {
+      "id": 27,
+      "type": "Stretch",
+      "name": "Standing Side Stretch",
+      "description": "A standing stretch to lengthen the sides of the torso.",
+      "image": "StandingSideStretch"
+    },
+    {
+      "id": 28,
+      "type": "Stretch",
+      "name": "Supine Hamstring Stretch",
+      "description": "A lying stretch to lengthen the hamstring muscles.",
+      "image": "SupineHamstringStretch"
+    },
+    {
+      "id": 29,
+      "type": "Stretch",
+      "name": "Side Lunge Stretch",
+      "description": "A dynamic stretch to improve hip and inner thigh flexibility.",
+      "image": "SideLungeStretch"
+    },
+    {
+      "id": 30,
+      "type": "Stretch",
+      "name": "Circular Arm Raise to Toe Touch",
+      "description": "A dynamic movement for full-body warm-up and flexibility.",
+      "image": "CircularArmRaiseToeTouchL",
+      "variations": {
+        "left": {
+          "id": 31,
+          "name": "Circular Arm Raise to Toe Touch (Left)",
+          "image": "CircularArmRaiseToeTouchL"
+        },
+        "right": {
+          "id": 32,
+          "name": "Circular Arm Raise to Toe Touch (Right)",
+          "image": "CircularArmRaiseToeTouchR"
+        }
+      }
+    },
+    {
+      "id": 33,
+      "type": "Stretch",
+      "name": "Forward Reach",
+      "description": "A stretch to improve back and hamstring flexibility.",
+      "image": "ForwardReachL",
+      "variations": {
+        "left": {
+          "id": 34,
+          "name": "Forward Reach (Left)",
+          "image": "ForwardReachL"
+        },
+        "right": {
+          "id": 35,
+          "name": "Forward Reach (Right)",
+          "image": "ForwardReachR"
+        }
+      }
+    },
+    {
+      "id": 35,
+      "type": "Workout",
+      "name": "Push-Ups",
+      "description": "A basic exercise to build upper body strength.",
+      "image": "PushUps"
+    },
+    {
+      "id": 36,
+      "type": "Workout",
+      "name": "Bicycle Crunches",
+      "description": "An effective exercise for the core and oblique muscles.",
+      "image": "BicycleCrunches"
+    },
+    {
+      "id": 37,
+      "type": "Workout",
+      "name": "Lunges",
+      "description": "A lower-body exercise to improve strength and balance.",
+      "image": "Lunges"
+    },
+    {
+      "id": 38,
+      "type": "Workout",
+      "name": "Squats",
+      "description": "A strength exercise for the legs and glutes.",
+      "image": "Squats"
+    },
+    {
+      "id": 39,
+      "type": "Workout",
+      "name": "Squats With Punch",
+      "description": "A plyometric exercise to build explosive leg power.",
+      "image": "SquatsWithPunch"
+    },
+    {
+      "id": 40,
+      "type": "Workout",
+      "name": "Mountain Climbers",
+      "description": "A full-body cardio exercise to build endurance.",
+      "image": "MountainClimbers"
+    },
+    {
+      "id": 42,
+      "type": "Workout",
+      "name": "Sit-Ups",
+      "description": "An exercise to strengthen abdominal muscles.",
+      "image": "SitUps"
+    },
+    {
+      "id": 43,
+      "type": "Workout",
+      "name": "One-Hand Push-Ups",
+      "description": "An advanced push-up variation for upper body strength.",
+      "image": "OneHandPushUpL",
+      "variations": {
+        "left": {
+          "id": 44,
+          "name": "One-Hand Push-Ups (Left)",
+          "image": "OneHandPushUpL"
+        },
+        "right": {
+          "id": 45,
+          "name": "One-Hand Push-Ups (Right)",
+          "image": "OneHandPushUpR"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "type": "Workout",
+      "name": "Supine Hip Bridge",
+      "description": "A glute and hamstring exercise to build lower body strength.",
+      "image": "SupineHipBridge"
+    },
+    {
+      "id": 47,
+      "type": "Workout",
+      "name": "Sit-Up with Elbow-to-Knee Rotation",
+      "description": "A core exercise targeting the obliques.",
+      "image": "SitUpElbowKneeRot"
+    },
+    {
+      "id": 48,
+      "type": "Workout",
+      "name": "Seated Leg Push with Body Rotation",
+      "description": "An exercise combining core and lower body strength.",
+      "image": "SeatedLegPushRot"
+    },
+    {
+      "id": 49,
+      "type": "Workout",
+      "name": "Close Hand Push-Ups",
+      "description": "A dynamic movement to build core and arm strength.",
+      "image": "CloseHandPushUps"
+    },
+    {
+      "id": 50,
+      "type": "Workout",
+      "name": "Bicycle Crunches",
+      "description": "A core exercise for strengthening the abs and obliques.",
+      "image": "BicycleCrunches"
+    }
+  ]
+}

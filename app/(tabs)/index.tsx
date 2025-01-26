@@ -1,43 +1,57 @@
-import { Image, StyleSheet } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { ThemedView } from '@/components/ThemedView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import Carousel from '@/components/Carousel/CustomCarousel';
+import carouselData from '@/data/carouselItems.json';
+import workoutImage from '@/assets/images/workout.jpg';
+import stretchImage from '@/assets/images/stretching.jpg';
+
+const imageMap = {
+  Workout: workoutImage,
+  stretch: stretchImage,
+};
+
+type ImageKey = keyof typeof imageMap;
+
+const carouselItems = carouselData.map((item) => ({
+  ...item,
+  image: imageMap[item.image as ImageKey],
+}));
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-    </ParallaxScrollView>
+    <ThemedView style={styles.container}>
+      <ParallaxScrollView
+        headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      ></ParallaxScrollView>
+      <LinearGradient
+        colors={['#383838', '#383838']}
+        style={styles.carouselContainer}
+      >
+        <Carousel data={carouselItems} />
+      </LinearGradient>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  carouselContainer: {
+    flex: 1,
+    marginTop: -380,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+  headerImage: {
+    color: '#808080',
+    left: -35,
     position: 'absolute',
   },
 });
