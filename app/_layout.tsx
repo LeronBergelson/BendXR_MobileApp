@@ -16,14 +16,14 @@ const MainLayout: React.FC = () => {
         },
       }}
     >
-      <Tab.Screen 
-        name="Home" 
+      <Tab.Screen
+        name="Home"
         component={HomeStackNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="home" color={color} size={size} />
           ),
-        }} 
+        }}
       />
     </Tab.Navigator>
   );

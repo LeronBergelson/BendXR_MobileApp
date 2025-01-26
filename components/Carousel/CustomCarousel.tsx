@@ -66,29 +66,6 @@ const CustomCarousel: React.FC<CarouselProps> = ({ data }) => {
             { useNativeDriver: false },
           )}
         />
-        <View style={styles.dotView}>
-          {data.map((_, i) => {
-            const opacity = position.interpolate({
-              inputRange: [i - 1, i, i + 1],
-              outputRange: [0.3, 1, 0.3],
-              extrapolate: 'clamp',
-            });
-
-            return (
-              <Animated.View
-                key={i}
-                style={{
-                  opacity,
-                  height: 6,
-                  width: 6,
-                  backgroundColor: 'white',
-                  margin: 5,
-                  borderRadius: 5,
-                }}
-              />
-            );
-          })}
-        </View>
       </View>
     );
   }
@@ -97,7 +74,7 @@ const CustomCarousel: React.FC<CarouselProps> = ({ data }) => {
 };
 
 const styles = StyleSheet.create({
-  dotView: { flexDirection: 'row', justifyContent: 'center' },
+  // Removed the dotView style as it's no longer needed
 });
 
 export default CustomCarousel;

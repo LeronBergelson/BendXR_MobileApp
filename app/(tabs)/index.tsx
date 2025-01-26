@@ -27,7 +27,7 @@ export default function HomeScreen() {
         headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       ></ParallaxScrollView>
       <LinearGradient
-        colors={['#a10362', 'black']}
+        colors={['#383838', '#383838']}
         style={styles.carouselContainer}
       >
         <Carousel data={carouselItems} />
@@ -39,12 +39,15 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
   },
   carouselContainer: {
     flex: 1,
     marginTop: -380,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   headerImage: {
     color: '#808080',

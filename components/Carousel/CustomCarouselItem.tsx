@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
   cardView: {
     flex: 1,
     width: width - 20,
-    height: height / 4.5,
+    height: height / 3.2,
     backgroundColor: 'black',
     margin: 10,
-    borderRadius: 10,
+    borderRadius: 20,
     overflow: 'hidden',
     shadowColor: '#000',
     shadowOffset: { width: 0.5, height: 0.5 },
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+    padding: 10,
   },
   textView: {
     position: 'absolute',

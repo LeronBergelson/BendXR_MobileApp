@@ -17,8 +17,8 @@ type Props = PropsWithChildren<{
   headerBackgroundColor: { dark: string; light: string };
 }>;
 
-const GIF_URL =
-  'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXpvcHU3NTB2ZHZjeDVxMTZqdnJ3cmYyNHh5ZjdkNG96d3l0YjgxeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UmKxt6PqvqtYIfB3hY/giphy.gif';
+// Assuming BendXRLogo.gif is stored in your assets folder
+const BEND_XR_LOGO_GIF = require('@/assets/images/BendXRLogo.gif');
 
 export default function ParallaxScrollView({
   children,
@@ -50,27 +50,32 @@ export default function ParallaxScrollView({
   });
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView style={[styles.container, { backgroundColor: 'black' }]}>
       <Animated.ScrollView
         ref={scrollRef}
         scrollEventThrottle={16}
         scrollIndicatorInsets={{ bottom }}
-        contentContainerStyle={{ paddingBottom: bottom }}
+        contentContainerStyle={{
+          paddingBottom: bottom,
+          backgroundColor: 'black',
+        }}
       >
         <Animated.View
           style={[
             styles.header,
-            { backgroundColor: headerBackgroundColor[colorScheme] },
+            { backgroundColor: 'black' },
             headerAnimatedStyle,
           ]}
         >
           <Image
-            source={{ uri: GIF_URL }}
+            source={BEND_XR_LOGO_GIF}
             style={styles.headerImage}
             resizeMode="cover"
           />
         </Animated.View>
-        <ThemedView style={styles.content}>{children}</ThemedView>
+        <ThemedView style={[styles.content, { backgroundColor: 'black' }]}>
+          {children}
+        </ThemedView>
       </Animated.ScrollView>
     </ThemedView>
   );
@@ -83,6 +88,7 @@ const styles = StyleSheet.create({
   header: {
     height: HEADER_HEIGHT,
     overflow: 'hidden',
+    padding: 10,
   },
   content: {
     flex: 1,
@@ -91,5 +97,6 @@ const styles = StyleSheet.create({
   headerImage: {
     width: '100%',
     height: '100%',
+    padding: 15,
   },
 });

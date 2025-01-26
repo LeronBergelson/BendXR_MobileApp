@@ -5,11 +5,14 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  Image,
+  Button,
 } from 'react-native';
 import { RootStackParamList } from '@/app/navigation/types';
 import { RouteProp, useNavigation } from '@react-navigation/native';
 import { HeaderBackButton } from '@react-navigation/elements';
 import exerciseData from '@/data/exercise_data.json';
+import ExerciseListItem from '@/components/ExerciseListItem/ExerciseListItem';
 
 type ExerciseListScreenRouteProp = RouteProp<
   RootStackParamList,
@@ -34,6 +37,8 @@ interface ExerciseItem {
       name: string;
     };
   } | null;
+  image: string;
+  description: string;
 }
 
 const ExerciseListScreen: React.FC<ExerciseListScreenProps> = ({ route }) => {
@@ -41,6 +46,7 @@ const ExerciseListScreen: React.FC<ExerciseListScreenProps> = ({ route }) => {
   const category = route.params.category; // Access category from route params
 
   const [exercises, setExercises] = useState<ExerciseItem[]>([]);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   useEffect(() => {
     // Filter exercises based on the category passed from the route params
@@ -50,6 +56,10 @@ const ExerciseListScreen: React.FC<ExerciseListScreenProps> = ({ route }) => {
     // Update the state with the filtered exercises
     setExercises(filteredExercises);
   }, [category]); // Dependency array ensures this runs when 'category' changes
+
+  const toggleExpand = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
     <View style={styles.container}>
@@ -64,30 +74,14 @@ const ExerciseListScreen: React.FC<ExerciseListScreenProps> = ({ route }) => {
         {category.charAt(0).toUpperCase() + category.slice(1)} Exercises
       </Text>
       <FlatList
-        data={exercises} // Data source for the list
-        keyExtractor={(item) => item.id.toString()} // Unique key for each item
+        data={exercises}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.itemButton}
-            onPress={() => console.log(item.name)}
-          >
-            <Text style={styles.itemText}>{item.name}</Text>
-            {/* Display variations if available */}
-            {item.variations && (
-              <View>
-                {item.variations.left && (
-                  <Text style={styles.variationText}>
-                    Left: {item.variations.left.name}
-                  </Text>
-                )}
-                {item.variations.right && (
-                  <Text style={styles.variationText}>
-                    Right: {item.variations.right.name}
-                  </Text>
-                )}
-              </View>
-            )}
-          </TouchableOpacity>
+          <ExerciseListItem
+            item={item}
+            expandedId={expandedId}
+            toggleExpand={toggleExpand}
+          />
         )}
       />
     </View>
@@ -107,20 +101,6 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginTop: 60,
-  },
-  itemButton: {
-    padding: 10,
-    marginVertical: 5,
-    backgroundColor: '#333',
-    borderRadius: 5,
-  },
-  itemText: {
-    color: '#FFF',
-    fontSize: 18,
-  },
-  variationText: {
-    color: '#AAA',
-    fontSize: 16,
   },
 });
 
