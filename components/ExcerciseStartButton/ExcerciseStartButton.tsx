@@ -1,21 +1,55 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Ensure you have this library installed
+import config from '@/app/config/env'; // Import the configuration for IP and port
 
 interface ExcerciseStartButtonProps {
   onToggle: () => void; // Callback to toggle exercise state in the parent component
   isActive: boolean; // Current state of the exercise
-  secondsLeft: number; // New prop for countdown timer
+  workoutName: string; // Add workoutName prop
 }
 
 const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
   onToggle,
   isActive,
-  secondsLeft,
+  workoutName,
 }) => {
+  const handlePress = async () => {
+    if (!isActive) {
+      // Only send the request when the workout is about to start
+      const url = `http://${config.ipAddress}:${config.port}/remote/object/call`;
+      const body = {
+        objectPath:
+          '/Game/VRTemplate/Maps/UEDPIE_0_VRTemplateMap.VRTemplateMap:PersistentLevel.BP_RemoteControl_MaleInstructor_C_4',
+        functionName: 'Handle Animation Request',
+        generateTransaction: true,
+        parameters: {
+          workout: workoutName,
+        },
+      };
+
+      try {
+        console.log(workoutName);
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        });
+
+        const data = await response.json();
+        console.log('Success:', data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+    onToggle(); // Toggle the exercise state
+  };
+
   return (
     <TouchableOpacity
-      onPress={onToggle}
+      onPress={handlePress}
       style={[
         styles.button,
         isActive ? styles.activeButton : styles.inactiveButton,
@@ -25,11 +59,6 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
       <Text style={styles.buttonText}>
         {isActive ? 'Pause Exercise' : 'Start Exercise'}
       </Text>
-      {isActive && (
-        <View style={styles.timerContainer}>
-          <Text style={styles.timerText}>{secondsLeft}</Text>
-        </View>
-      )}
     </TouchableOpacity>
   );
 };
