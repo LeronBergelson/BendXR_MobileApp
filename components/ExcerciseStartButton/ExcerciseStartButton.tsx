@@ -3,12 +3,18 @@ import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Ensure you have this library installed
 import config from '@/app/config/env'; // Import the configuration for IP and port
 import AsyncStorage from '@react-native-async-storage/async-storage'; // Ensure this package is installed
+import { debounce } from 'lodash';
 
 interface ExcerciseStartButtonProps {
   onToggle: () => void; // Callback to toggle exercise state in the parent component
   isActive: boolean; // Current state of the exercise
   workoutName: string;
   exerciseType: 'workout' | 'stretch'; // New prop to distinguish exercise types
+}
+
+interface WorkoutData {
+  time: number;
+  date: string;
 }
 
 const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
@@ -41,13 +47,32 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
   }, [isActive, timer, exerciseType]);
 
   const saveWorkoutTime = async (time: number, type: 'workout' | 'stretch') => {
-    const key = type === 'workout' ? 'totalWorkoutTime' : 'totalStretchTime';
-    const storedTime = await AsyncStorage.getItem(key);
-    const newTime = storedTime ? parseInt(storedTime, 10) + time : time;
-    await AsyncStorage.setItem(key, newTime.toString());
+    if (time > 0) {
+      // Only save if the time is greater than 0
+      const key = type === 'workout' ? 'totalWorkoutTime' : 'totalStretchTime';
+      const storedData = await AsyncStorage.getItem(key);
+      const currentTime = new Date().toISOString();
+      const newData: WorkoutData = { time, date: currentTime };
+
+      let updatedData: WorkoutData[] = [];
+      if (storedData) {
+        const parsedData: WorkoutData[] = JSON.parse(storedData);
+        updatedData = [...parsedData, newData];
+      } else {
+        updatedData = [newData];
+      }
+
+      await AsyncStorage.setItem(key, JSON.stringify(updatedData));
+      console.log(`Saved ${type} data: ${JSON.stringify(newData)}`);
+    } else {
+      console.log(`Skipped saving ${type} data due to zero duration.`);
+    }
   };
 
-  const handlePress = async () => {
+  const handlePress = debounce(async () => {
+    console.log(
+      `Exercise ${isActive ? 'stopping' : 'starting'}. Current timer: ${timer}`,
+    );
     onToggle(); // Toggle the exercise state immediately
 
     if (!isActive) {
@@ -81,8 +106,13 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
 
       // Start the timer regardless of the request outcome
       saveWorkoutTime(timer, exerciseType);
+    } else {
+      // This block runs when stopping the exercise
+      if (timer === 0) {
+        console.log('Exercise stopped with zero timer.');
+      }
     }
-  };
+  }, 300); // Adjust debounce time as needed
 
   return (
     <TouchableOpacity
