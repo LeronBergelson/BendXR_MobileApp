@@ -4,5 +4,6 @@ export type RootStackParamList = {
   ExerciseListScreen: {
     category: string;
   };
+  UserAnalyticsScreen: undefined;
   // Add other navigation route parameters as needed
 };
