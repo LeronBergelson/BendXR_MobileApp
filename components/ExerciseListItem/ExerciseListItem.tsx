@@ -87,7 +87,7 @@ const ExerciseListItem: React.FC<ExerciseListItemProps> = ({
               <ExcerciseStartButton
                 onToggle={handleExerciseToggle}
                 isActive={isExerciseActive}
-                secondsLeft={secondsLeft}
+                workoutName={item.name}
               />
             </View>
           </View>

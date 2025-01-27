@@ -12,3 +12,10 @@ expo-env.d.ts
 
 # Ignore expo-env.d.ts
 expo-env.d.ts
+
+# Environment variables
+.env
+
+# Node modules
+node_modules/
+
