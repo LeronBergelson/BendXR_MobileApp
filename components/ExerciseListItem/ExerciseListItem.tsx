@@ -12,6 +12,7 @@ interface ExerciseListItemProps {
     name: string;
     description: string;
     image: string;
+    type: string;
   };
   expandedId: number | null;
   toggleExpand: (id: number) => void;
@@ -88,6 +89,9 @@ const ExerciseListItem: React.FC<ExerciseListItemProps> = ({
                 onToggle={handleExerciseToggle}
                 isActive={isExerciseActive}
                 workoutName={item.name}
+                exerciseType={
+                  item.type.toLowerCase() === 'workout' ? 'workout' : 'stretch'
+                }
               />
             </View>
           </View>
