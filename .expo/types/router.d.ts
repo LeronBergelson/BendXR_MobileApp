@@ -27,7 +27,6 @@ declare module 'expo-router' {
             params?: Router.UnknownInputParams;
           }
         | { pathname: `${'/(tabs)'}` | `/`; params?: Router.UnknownInputParams }
-        | { pathname: `/config/env`; params?: Router.UnknownInputParams }
         | {
             pathname: `/navigation/StackNavigator`;
             params?: Router.UnknownInputParams;
@@ -62,7 +61,6 @@ declare module 'expo-router' {
             pathname: `${'/(tabs)'}` | `/`;
             params?: Router.UnknownOutputParams;
           }
-        | { pathname: `/config/env`; params?: Router.UnknownOutputParams }
         | {
             pathname: `/navigation/StackNavigator`;
             params?: Router.UnknownOutputParams;
@@ -83,7 +81,6 @@ declare module 'expo-router' {
         | `/UserAnalyticsScreen${`?${string}` | `#${string}` | ''}`
         | `${'/(tabs)'}${`?${string}` | `#${string}` | ''}`
         | `/${`?${string}` | `#${string}` | ''}`
-        | `/config/env${`?${string}` | `#${string}` | ''}`
         | `/navigation/StackNavigator${`?${string}` | `#${string}` | ''}`
         | `/navigation/types${`?${string}` | `#${string}` | ''}`
         | `/screens/ExerciseListScreen${`?${string}` | `#${string}` | ''}`
@@ -107,7 +104,6 @@ declare module 'expo-router' {
             params?: Router.UnknownInputParams;
           }
         | { pathname: `${'/(tabs)'}` | `/`; params?: Router.UnknownInputParams }
-        | { pathname: `/config/env`; params?: Router.UnknownInputParams }
         | {
             pathname: `/navigation/StackNavigator`;
             params?: Router.UnknownInputParams;

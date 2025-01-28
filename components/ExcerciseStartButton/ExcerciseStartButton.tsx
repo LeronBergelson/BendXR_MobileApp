@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Ensure you have this library installed
-import config from '@/app/config/env'; // Import the configuration for IP and port
 import AsyncStorage from '@react-native-async-storage/async-storage'; // Ensure this package is installed
 import { debounce } from 'lodash';
+
+// Use environment variables directly
+const ipAddress = process.env.REACT_APP_IP_ADDRESS;
+const port = process.env.REACT_APP_PORT;
 
 interface ExcerciseStartButtonProps {
   onToggle: () => void; // Callback to toggle exercise state in the parent component
@@ -77,7 +80,8 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
 
     if (!isActive) {
       // Attempt to send the HTTP request when the workout is about to start
-      const url = `http://${config.ipAddress}:${config.port}/remote/object/call`;
+      console.log(`Sending HTTP request to ${ipAddress}:${port}`);
+      const url = `http://${ipAddress}:${port}/remote/object/call`;
       const body = {
         objectPath:
           '/Game/VRTemplate/Maps/UEDPIE_0_VRTemplateMap.VRTemplateMap:PersistentLevel.BP_RemoteControl_MaleInstructor_C_4',

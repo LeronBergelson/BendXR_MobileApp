@@ -1,18 +1,12 @@
-export default {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-syntax-dynamic-import',
-    [
-      'module:react-native-dotenv',
-      {
-        moduleName: '@env',
-        path: '.env',
-        blacklist: null,
-        whitelist: null,
-        safe: false,
-        allowUndefined: true,
-      },
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: [
+      ['@babel/plugin-proposal-class-properties', { loose: true }],
+      ['@babel/plugin-proposal-private-methods', { loose: true }],
+      ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+      'babel-plugin-transform-inline-environment-variables',
     ],
-  ],
+  };
 };
