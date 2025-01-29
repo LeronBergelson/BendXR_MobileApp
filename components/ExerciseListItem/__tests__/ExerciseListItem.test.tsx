@@ -14,6 +14,7 @@ describe('ExerciseListItem', () => {
     name: 'Test Exercise',
     description: 'Description of test exercise',
     image: 'workout',
+    type: 'workout',
   };
 
   it('renders correctly', () => {
