@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Ensure you have this library installed
-import AsyncStorage from '@react-native-async-storage/async-storage'; // Ensure this package is installed
-import { debounce } from 'lodash';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Use environment variables directly
 const ipAddress = process.env.REACT_APP_IP_ADDRESS;
 const port = process.env.REACT_APP_PORT;
 
@@ -12,7 +10,7 @@ interface ExcerciseStartButtonProps {
   onToggle: () => void; // Callback to toggle exercise state in the parent component
   isActive: boolean; // Current state of the exercise
   workoutName: string;
-  exerciseType: 'workout' | 'stretch'; // New prop to distinguish exercise types
+  exerciseType: 'workout' | 'stretch'; // Distinguish exercise types
 }
 
 interface WorkoutData {
@@ -27,96 +25,61 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
   exerciseType,
 }) => {
   const [timer, setTimer] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined = undefined;
     if (isActive) {
-      interval = setInterval(() => {
+      const id = setInterval(() => {
         setTimer((prevTimer) => prevTimer + 1);
       }, 1000);
+      setIntervalId(id);
     } else {
-      clearInterval(interval);
-      if (timer !== 0) {
-        console.log(
-          `Exercise ended. Type: ${exerciseType}, Time: ${timer} seconds`,
-        );
+      if (intervalId) {
+        clearInterval(intervalId);
+        setIntervalId(null);
+      }
+      if (timer > 0) {
         saveWorkoutTime(timer, exerciseType);
-        setTimer(0);
+        setTimer(0); // Reset timer when exercise stops
       }
     }
+
     return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isActive, timer, exerciseType]);
-
-  const saveWorkoutTime = async (time: number, type: 'workout' | 'stretch') => {
-    if (time > 0) {
-      // Only save if the time is greater than 0
-      const key = type === 'workout' ? 'totalWorkoutTime' : 'totalStretchTime';
-      const storedData = await AsyncStorage.getItem(key);
-      const currentTime = new Date().toISOString();
-      const newData: WorkoutData = { time, date: currentTime };
-
-      let updatedData: WorkoutData[] = [];
-      if (storedData) {
-        const parsedData: WorkoutData[] = JSON.parse(storedData);
-        updatedData = [...parsedData, newData];
-      } else {
-        updatedData = [newData];
+      if (intervalId) {
+        clearInterval(intervalId);
       }
+    };
+  }, [isActive]);
 
-      await AsyncStorage.setItem(key, JSON.stringify(updatedData));
-      console.log(`Saved ${type} data: ${JSON.stringify(newData)}`);
+  const handlePress = async () => {
+    if (isActive) {
+      // Stop the exercise
+      const elapsedTime = timer; // Use the current timer value directly
+      console.log(
+        `Exercise ended. Type: ${exerciseType}, Time: ${elapsedTime} seconds`,
+      );
+
+      await saveWorkoutTime(elapsedTime, exerciseType);
+      setTimer(0); // Reset timer when exercise stops
     } else {
-      console.log(`Skipped saving ${type} data due to zero duration.`);
+      // Start the exercise
+      console.log(`Exercise starting for type: ${exerciseType}`);
     }
+
+    onToggle(); // Toggle the exercise state
   };
 
-  const handlePress = debounce(async () => {
-    console.log(
-      `Exercise ${isActive ? 'stopping' : 'starting'}. Current timer: ${timer}`,
-    );
-    onToggle(); // Toggle the exercise state immediately
+  const saveWorkoutTime = async (time: number, type: 'workout' | 'stretch') => {
+    const key = type === 'workout' ? 'totalWorkoutTime' : 'totalStretchTime';
+    const storedData = await AsyncStorage.getItem(key);
+    const currentTime = new Date().toISOString(); // Save ISO date format
+    const newData: WorkoutData = { time, date: currentTime };
 
-    if (!isActive) {
-      // Attempt to send the HTTP request when the workout is about to start
-      console.log(`Sending HTTP request to ${ipAddress}:${port}`);
-      const url = `http://${ipAddress}:${port}/remote/object/call`;
-      const body = {
-        objectPath:
-          '/Game/VRTemplate/Maps/UEDPIE_0_VRTemplateMap.VRTemplateMap:PersistentLevel.BP_RemoteControl_MaleInstructor_C_4',
-        functionName: 'Handle Animation Request',
-        generateTransaction: true,
-        parameters: {
-          workout: workoutName,
-        },
-      };
+    let updatedData: WorkoutData[] = storedData ? JSON.parse(storedData) : [];
+    updatedData.push(newData);
 
-      try {
-        const response = await fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(body),
-        });
-
-        const data = await response.json();
-        console.log('Success:', data);
-      } catch (error) {
-        console.error('Error:', error);
-        console.log('Proceeding with the timer despite the request failure.');
-      }
-
-      // Start the timer regardless of the request outcome
-      saveWorkoutTime(timer, exerciseType);
-    } else {
-      // This block runs when stopping the exercise
-      if (timer === 0) {
-        console.log('Exercise stopped with zero timer.');
-      }
-    }
-  }, 300); // Adjust debounce time as needed
+    await AsyncStorage.setItem(key, JSON.stringify(updatedData));
+  };
 
   return (
     <TouchableOpacity
@@ -130,7 +93,6 @@ const ExcerciseStartButton: React.FC<ExcerciseStartButtonProps> = ({
       <Text style={styles.buttonText}>
         {isActive ? 'Pause Exercise' : 'Start Exercise'}
       </Text>
-      {/* Timer display only when active */}
       {isActive && (
         <View style={styles.timerContainer}>
           <Text style={styles.timerText}>{timer} sec</Text>

@@ -34,26 +34,10 @@ const ExerciseListItem: React.FC<ExerciseListItemProps> = ({
   toggleExpand,
 }) => {
   const [isExerciseActive, setIsExerciseActive] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(30);
 
   const handleExerciseToggle = () => {
-    if (!isExerciseActive) {
-      setSecondsLeft(30); // Reset timer when starting
-    }
     setIsExerciseActive(!isExerciseActive);
   };
-
-  React.useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isExerciseActive && secondsLeft > 0) {
-      timer = setInterval(() => {
-        setSecondsLeft((prev) => prev - 1);
-      }, 1000);
-    } else if (secondsLeft === 0) {
-      setIsExerciseActive(false); // Reset button to inactive
-    }
-    return () => clearInterval(timer);
-  }, [isExerciseActive, secondsLeft]);
 
   const handleHeaderClick = () => {
     toggleExpand(item.id);
